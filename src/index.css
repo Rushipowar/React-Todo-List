@@ -1,0 +1,284 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;700&display=swap");
+
+:root {
+  --Bright-Blue: hsl(220, 98%, 61%);
+  --Very-Light-Gray: hsl(0, 0%, 98%);
+  --Very-Light-Grayish-Blue: hsl(236, 33%, 92%);
+  --Light-Grayish-Blue: hsl(233, 11%, 84%);
+  --Dark-Grayish-Blue: hsl(236, 9%, 61%);
+  --Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+
+  --Very-Dark-Blue: hsl(235, 21%, 11%);
+  --Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
+  --Light-GrayishBlue: hsl(234, 39%, 85%);
+  --Light-Grayish-Blue-hover: hsl(236, 33%, 92%);
+  --Dark-GrayishBlue: hsl(234, 11%, 52%);
+  --Very-Dark-GrayishBlue: hsl(233, 14%, 35%);
+  --Very-DarkGrayishBlue: hsl(237, 14%, 26%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.App {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(../public/images/bg-desktop-dark.jpg);
+  background-position: top;
+  background-size: 100% 250px;
+  background-repeat: no-repeat;
+  background-color: var(--Very-Dark-Blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.App.light {
+  background-image: url(../public/images/bg-desktop-light.jpg);
+  background-color: var(--Very-Light-Grayish-Blue);
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--Very-Light-Gray);
+  letter-spacing: 0.7rem;
+}
+
+.logo {
+  width: min(90%, 600px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5rem;
+}
+.logo-icon {
+  color: var(--Very-Light-Gray);
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.form {
+  width: min(90%, 600px);
+  height: 60px;
+  margin-top: 3rem;
+  background-color: var(--Very-DarkGrayishBlue);
+  border-radius: 0.8rem;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+.form input {
+  width: 70%;
+  height: 100%;
+  border: none;
+  outline: none;
+  border-radius: 1rem;
+  font-size: 18px;
+  background-color: var(--Very-DarkGrayishBlue);
+  color: var(--Very-Light-Grayish-Blue);
+  caret-color: var(--Bright-Blue);
+}
+.form.light {
+  background-color: var(--Very-Light-Gray);
+}
+.form.light input {
+  background-color: var(--Very-Light-Gray);
+  color: var(--Very-DarkGrayishBlue);
+}
+.check-box-form {
+  width: 25px;
+  height: 25px;
+  margin: 2rem;
+  border: 2px solid var(--Dark-GrayishBlue);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.check-box input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  margin: 2rem;
+  border: 2px solid var(--Dark-GrayishBlue);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.check-box input:hover {
+  border: 2px solid transparent;
+  background: linear-gradient(
+        var(--Very-DarkGrayishBlue),
+        var(--Very-DarkGrayishBlue)
+      )
+      padding-box,
+    linear-gradient(125deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
+}
+.check-box.light input:hover {
+  border: 2px solid transparent;
+  background: linear-gradient(var(--Very-Light-Gray), var(--Very-Light-Gray))
+      padding-box,
+    linear-gradient(125deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
+}
+
+.check-box input:checked::before {
+  content: "\2713";
+  font-size: 2rem;
+  color: #fff;
+  position: absolute;
+  right: 3px;
+  top: -2px;
+}
+.check-box input:checked,
+.check-box.light input:checked {
+  background: linear-gradient(125deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  border: none;
+  position: relative;
+}
+
+.todolist {
+  position: relative;
+  color: var(--Very-Light-Grayish-Blue);
+  background-color: var(--Very-DarkGrayishBlue);
+  font-size: 1.8rem;
+  margin-top: 2rem;
+  width: min(90%, 600px);
+  border-radius: 0.8rem;
+}
+.todolist.light {
+  background-color: var(--Very-Light-Gray);
+  color: var(--Very-Dark-Desaturated-Blue);
+  box-shadow: 5px 5px 40px -15px var(--Dark-Grayish-Blue);
+}
+.drop_area,
+.todo-item {
+  display: flex;
+  align-items: center;
+
+  padding: 1rem;
+  border-bottom: 1px solid var(--Dark-GrayishBlue);
+  cursor: grab;
+}
+
+.drop_area {
+  opacity: 0.7;
+  transition: all 0.2s ease-in-out;
+  height: 60px;
+}
+
+.hide_drop {
+  opacity: 0;
+}
+
+.todo-item.light {
+  border-bottom: 1px solid var(--Light-GrayishBlue);
+}
+.todo-item-completed {
+  text-decoration: line-through;
+  color: var(--Dark-GrayishBlue);
+}
+
+.cross-sign {
+  color: var(--Light-GrayishBlue);
+  opacity: 0;
+  font-size: 25px;
+  margin-left: auto;
+  margin-right: 2rem;
+}
+
+.todo-item:hover .cross-sign,
+.todo-item:hover .cross-sign.light {
+  opacity: 1;
+}
+
+.cross-sign.light {
+  color: var(--Very-DarkGrayishBlue);
+  opacity: 0;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  color: var(--Dark-GrayishBlue);
+}
+.stat button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--Dark-GrayishBlue);
+}
+.stat-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.stat-cta button.active {
+  color: var(--Bright-Blue);
+}
+
+.drag-drop {
+  color: var(--Dark-GrayishBlue);
+  margin: 2rem;
+  font-size: 1.4rem;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  color: var(--Dark-GrayishBlue);
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media screen and (max-width: 550px) {
+  .stat {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .App {
+    background-image: url(../public/images/bg-mobile-dark.jpg);
+  }
+  .App.light {
+    background-image: url(../public/images/bg-mobile-light.jpg);
+  }
+  .cross-sign,
+  .cross-sign.light {
+    opacity: 1;
+  }
+  .stat-cta {
+    position: absolute;
+    bottom: -8rem;
+    left: 0;
+    right: 0;
+    border-radius: 0.8rem;
+    padding: 2rem;
+    color: var(--Very-Light-Grayish-Blue);
+    background-color: var(--Very-DarkGrayishBlue);
+  }
+  .todolist.light .stat-cta {
+    background-color: var(--Very-Light-Gray);
+    color: var(--Very-Dark-Desaturated-Blue);
+  }
+
+  .drag-drop {
+    margin-top: 10rem;
+  }
+}
